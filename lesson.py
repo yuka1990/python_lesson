@@ -85,3 +85,40 @@ for i in range(N):
             print(j)
         else:
             print(j, end=" ")
+###################################
+#自然数 N, M と N 個の自然数からなる数列 A と M 個の自然数からなる数列 B が与えられます。
+#数列 A の値を B_1 個、B_2個、... B_M 個で分割し、それぞれの数列を改行区切りで出力してください。
+n,m = map(int,input().split())
+a = list(map(int,input().split()))
+b = list(map(int,input().split()))
+
+current_index = 0
+
+for i in b:
+    print(" ".join(map(str, a[current_index:current_index + i])))
+    
+    current_index += i
+#解答コード
+values = input().split()
+N = int(values[0])
+M = int(values[1])
+
+A = [0] * N
+values = input().split()
+for i in range(N):
+    A[i] = int(values[i])
+
+B = [0] * M
+values = input().split()
+for i in range(M):
+    B[i] = int(values[i])
+
+head = 0
+for i in B:
+    for j in range(i):
+        if j == i - 1:
+            print(A[head])
+        else:
+            print(A[head], end=" ")
+
+        head += 1
