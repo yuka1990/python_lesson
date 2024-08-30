@@ -122,3 +122,37 @@ for i in B:
             print(A[head], end=" ")
 
         head += 1
+#####################################
+#1 行目に整数 N が与えられます。
+#2 行目以降に、N 組の整数 a_i と b_i が N 行で与えられます。(1 ≦ i ≦ N)
+#8 組目の a_i と b_i を出力してください。
+n = int(input())
+for i in range(n):
+    a,b = map(int,input().split())
+    if i == 7:
+        print(a,b)
+#解答コード
+N = int(input())
+a = []
+b = []
+for i in range(N):
+    a_i, b_i = map(int, input().split())
+    a.append(a_i)
+    b.append(b_i)
+
+print(a[7], b[7])
+#########################################
+#3 行 3 列の行列が与えられます。上から i 番目、左から j 番目の整数は a_{i,j} です。
+#3 行 3 列の行列をそのまま出力してください。
+for i in range(3):
+    numbers = input()
+    print(numbers)
+#解答コード
+a = []
+for i in range(3):
+    a_i = list(map(int, input().split()))
+    a.append(a_i)
+
+for i in range(3):
+    print(*a[i])
+#########################################
