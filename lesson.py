@@ -291,3 +291,52 @@ for i in range(1, N):
     else:
         memo.add(A[i])
         print("No")
+##########################################
+#文字列 S が与えられるので、 S を整数に変換できる場合には "YES" , そうでない場合は "NO" を出力してください。
+s = input()
+try:
+    s = int(s)
+    print("YES")
+except ValueError:
+    print("NO")
+#解答コード
+s = input()
+
+if s.isdigit():
+    print("YES")
+else:
+    print("NO")
+################################
+#正しい数式を表す文字列 S が与えられるので、その数式を計算した結果を出力してください。
+#ただし、出てくる計算は足し算・引き算のみとし、数式に項として出てくる数字は全て 1 桁の正の数であるものとします。
+#例として、1-2, 2+1-7 のような文字列は与えられる可能性がありますが、1+(-2) や -4-2+4, 5+-2 のような文字列は与えられないことが保証されている点に注意してください。
+s = input()
+result = int(s[0])
+index = 1
+while index < len(s):
+    sign = s[index]
+    number = int(s[index + 1])
+    if sign == "+":
+        result += number
+    else:
+        result -= number
+    index += 2
+print(result)
+#解答コード
+s = input()
+
+ans = 0
+add = True
+for i in range(len(s)):
+    if i % 2 == 0:
+        if add:
+            ans += int(s[i])
+        else:
+            ans -= int(s[i])
+    else:
+        if s[i] == "+":
+            add = True
+        else:
+            add = False
+
+print(ans)
