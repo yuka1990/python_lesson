@@ -340,3 +340,55 @@ for i in range(len(s)):
             add = False
 
 print(ans)
+############################################
+#配列 A の要素数 N と新たに作成する配列のサイズ n , 配列 A の各要素 A_1 ... A_N が与えられるので、
+#配列 A の先頭から n 要素を順に保持する配列を作成してください。新たに作成する配列の要素数が A の要素数よりも大きい時は、
+#サイズが合うように 0 を A の要素の末尾に追加してください。
+N,n = map(int,input().split())
+a = [int(input()) for _ in range(N)]
+if N >= n:
+    for i in range(n):
+        print(a[i])
+else:
+    for i in a:
+        print(i)
+    for j in range(n-N):
+        print(0)
+#解答コード
+N, n = map(int, input().split())
+a = [0] * n
+
+for i in range(N):
+    a_i = input()
+    if i < n:
+        a[i] = a_i
+
+for ele in a:
+    print(ele)
+####################################################
+#paiza の入社試験では 科目 1 〜 5 の 5 科目のテストが課せられており、それぞれの科目には重みが設定されています。
+#受験者の得点は各科目の (とった点数) * (科目の重み) となります。 5 科目の得点の合計が最も高かった受験者の得点を求めてください。
+N = int(input())
+weight = list(map(int,input().split()))
+total_score = [0] * N
+for i in range(N):
+    score = list(map(int,input().split()))
+    for j in range(5):
+        each_score = score[j] * weight[j]
+        total_score[i] += each_score
+print(max(total_score))
+#解答コード
+n = int(input())
+m = list(map(int,input().split()))
+ans = 0
+
+for i in range(n):
+    a = list(map(int, input().split()))
+    score = 0
+    for j in range(5):
+        score += a[j] * m[j]
+    if score > ans:
+        ans = score
+
+print(ans)
+###############################################
